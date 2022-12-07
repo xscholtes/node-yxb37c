@@ -34,5 +34,5 @@ function calculate(data) {
       .sort()[0],
   ];
 }
-rf('day7_sample.txt', calculate);
-rf('day7_input.txt', calculate);
+rf('day7/sample.txt', calculate);
+rf('day7/input.txt', calculate);
