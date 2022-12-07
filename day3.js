@@ -1,8 +1,6 @@
-import { open } from 'fs/promises';
-import { uniq } from 'underscore';
-let filehandle;
-try {
-  function calculate(data) {
+import { rf } from './utils/rf.js';
+
+function calculate(data) {
     //result A
     var compartments = data
       .toString()
@@ -22,7 +20,7 @@ try {
           : character.charCodeAt(0) - 38;
       result.push(value);
     });
-    console.log(result.reduce((a, b) => a + b, 0));
+    var result1 = result.reduce((a, b) => a + b, 0));
     //result B
     var groups = [];
     var curr = [];
@@ -46,17 +44,9 @@ try {
         }
       });
 
-    console.log(groups.reduce((a, b) => a + b, 0));
+      var result2 = groups.reduce((a, b) => a + b, 0);
+      return [result1,result2];
   }
 
-  let filehandle = await open('day3_sample.txt', 'r');
-  console.log(`sample 3`);
-  let reader = filehandle.createReadStream();
-  reader.on('data', calculate);
-  filehandle = await open('day3_input.txt', 'r');
-  console.log(`day 3`);
-  reader = filehandle.createReadStream();
-  reader.on('data', calculate);
-} finally {
-  await filehandle?.close();
-}
+  rf('day2/sample.txt', calculate);
+  rf('day2/input.txt', calculate);
