@@ -14,7 +14,8 @@ try {
     }
     console.log(start);
   }
-
+  rf('day7_sample.txt', calculate);
+  rf('day7_input.txt', calculate);
   let filehandle = await open('day6_sample.txt', 'r');
   console.log(`sample 6`);
   let reader = filehandle.createReadStream();
