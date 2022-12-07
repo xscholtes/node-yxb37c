@@ -1,7 +1,4 @@
-import { open } from 'fs/promises';
 import { range } from 'underscore';
-let filehandle;
-try {
   function calculate(data) {
     //PARSING
     var crates = data.toString().split('\r\n\r\n')[0].split('\r\n');
@@ -41,18 +38,9 @@ try {
       var moved = stacks2[move[1] - 1].splice(0, move[0]);
       stacks2[move[2] - 1] = moved.concat(stacks2[move[2] - 1]);
     });
-    console.log(stacks.map((s) => s.shift()).join(''));
-    console.log(stacks2.map((s) => s.shift()).join(''));
+    return [stacks.map((s) => s.shift()).join('')),
+    stacks2.map((s) => s.shift()).join('')];
   }
 
-  let filehandle = await open('day5_sample.txt', 'r');
-  console.log(`sample 5`);
-  let reader = filehandle.createReadStream();
-  reader.on('data', calculate);
-  filehandle = await open('day5_input.txt', 'r');
-  console.log(`input 5`);
-  reader = filehandle.createReadStream();
-  reader.on('data', calculate);
-} finally {
-  await filehandle?.close();
-}
+  rf('day5/sample.txt', calculate);
+  rf('day5/input.txt', calculate);
