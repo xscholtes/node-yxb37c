@@ -1,6 +1,6 @@
 import { rf } from './utils/rf.js';
 import { pairs } from 'underscore';
-let filehandle;
+
 function calculate(data) {
   //PARSING
   var input = data.toString().split('\r\n');
@@ -23,18 +23,16 @@ function calculate(data) {
       }
     }
   });
-  console.log(
+  return [
     pairs(tree)
       .filter((p) => p[1] <= 100000)
       .map((p) => p[1])
-      .reduce((a, b) => a + b, 0)
-  );
-  console.log(
+      .reduce((a, b) => a + b, 0),
     pairs(tree)
       .filter((p) => p[1] >= 30000000 - (70000000 - tree['']))
       .map((p) => p[1])
-      .sort()[0]
-  );
+      .sort()[0],
+  ];
 }
 rf('day7_sample.txt', calculate);
 rf('day7_input.txt', calculate);
