@@ -1,5 +1,4 @@
 import { rf } from './utils/rf.js';
-import { pairs } from 'underscore';
 
 function calculate(data) {
   //PARSING
