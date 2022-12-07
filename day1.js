@@ -12,15 +12,15 @@ function calculate(data) {
         .reduce((a, b) => a + b, 0);
     });
   //get max
-  console.log(elfes.reduce((a, b) => Math.max(a, b), -Infinity));
-  //sum max 3
-  console.log(
+  return [
+    elfes.reduce((a, b) => Math.max(a, b), -Infinity),
+    //sum max 3
     elfes
       .sort()
       .reverse()
       .slice(0, 3)
-      .reduce((a, b) => a + b, 0)
-  );
+      .reduce((a, b) => a + b, 0),
+  ];
 }
 
 rf('day1/sample.txt', calculate);
