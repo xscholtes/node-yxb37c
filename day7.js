@@ -1,52 +1,40 @@
-import { open } from 'fs/promises';
+import { rf } from './utils/rf.js';
 import { pairs } from 'underscore';
 let filehandle;
-try {
-  function calculate(data, length) {
-    //PARSING
-    var input = data.toString().split('\r\n');
-    var tree = {};
-    var path = '';
-    input.forEach((i) => {
-      if (i == '$ cd /') return;
-      let d = i.match(/cd (.*)/)?.[1] || false;
-      path = d
-        ? d == '..'
-          ? path.split('/').slice(0, -1).join('/')
-          : path.split('/').concat([d]).join('/')
-        : path;
+function calculate(data, length) {
+  //PARSING
+  var input = data.toString().split('\r\n');
+  var tree = {};
+  var path = '';
+  input.forEach((i) => {
+    if (i == '$ cd /') return;
+    let d = i.match(/cd (.*)/)?.[1] || false;
+    path = d
+      ? d == '..'
+        ? path.split('/').slice(0, -1).join('/')
+        : path.split('/').concat([d]).join('/')
+      : path;
 
-      tree[path] = tree[path] || 0;
-      let f = parseInt(i.match(/(\d.*) /)?.[1] || 0);
-      if (f >= 1) {
-        for (i = 1; i <= path.split('/').length; i++) {
-          tree[path.split('/').slice(0, i).join('/')] += f;
-        }
+    tree[path] = tree[path] || 0;
+    let f = parseInt(i.match(/(\d.*) /)?.[1] || 0);
+    if (f >= 1) {
+      for (i = 1; i <= path.split('/').length; i++) {
+        tree[path.split('/').slice(0, i).join('/')] += f;
       }
-    });
-    console.log(
-      pairs(tree)
-        .filter((p) => p[1] <= 100000)
-        .map((p) => p[1])
-        .reduce((a, b) => a + b, 0)
-    );
-    console.log(
-      pairs(tree)
-        .filter((p) => p[1] >= 30000000 - (70000000 - tree['']))
-        .map((p) => p[1])
-        .sort()[0]
-    );
-  }
-
-  let filehandle = await open('day7_sample.txt', 'r');
-  console.log(`sample 7`);
-  let reader = filehandle.createReadStream();
-  reader.on('data', (d) => calculate(d, 4));
-
-  filehandle = await open('day7_input.txt', 'r');
-  console.log(`input 7`);
-  reader = filehandle.createReadStream();
-  reader.on('data', (d) => calculate(d, 4));
-} finally {
-  await filehandle?.close();
+    }
+  });
+  console.log(
+    pairs(tree)
+      .filter((p) => p[1] <= 100000)
+      .map((p) => p[1])
+      .reduce((a, b) => a + b, 0)
+  );
+  console.log(
+    pairs(tree)
+      .filter((p) => p[1] >= 30000000 - (70000000 - tree['']))
+      .map((p) => p[1])
+      .sort()[0]
+  );
 }
+rf('day7_sample.txt', calculate);
+rf('day7_input.txt', calculate);
