@@ -1,7 +1,7 @@
 import { rf } from './utils/rf.js';
 import { pairs } from 'underscore';
 let filehandle;
-function calculate(data, length) {
+function calculate(data) {
   //PARSING
   var input = data.toString().split('\r\n');
   var tree = {};
