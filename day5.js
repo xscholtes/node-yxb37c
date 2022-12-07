@@ -46,5 +46,5 @@ function calculate(data) {
   ];
 }
 
-rf('day5/sample.txt', calculate);
+rf('day5/sample.txt', calculate,['CMZ','MCD']);
 rf('day5/input.txt', calculate);

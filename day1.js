@@ -23,5 +23,5 @@ function calculate(data) {
   ];
 }
 
-rf('day1/sample.txt', calculate);
+rf('day1/sample.txt', calculate,[24000,34000]);
 rf('day1/input.txt', calculate);

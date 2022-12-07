@@ -4,7 +4,7 @@ function calculate(data) {
   //PARSING
   var input = data.toString().split('\r\n');
 
-  return [input, input.length];
+  return [input[0], input.length];
 }
-rf('day25/sample.txt', calculate);
+rf('day25/sample.txt', calculate,['sample input',1]);
 rf('day25/input.txt', calculate);

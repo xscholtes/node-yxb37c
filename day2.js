@@ -67,5 +67,5 @@ function calculate(data) {
   return [rewardsSum, rewardsSum2];
 }
 
-rf('day2/sample.txt', calculate);
+rf('day2/sample.txt', calculate,[15,12]);
 rf('day2/input.txt', calculate);

@@ -50,5 +50,5 @@ function calculate(data) {
   return [result1, result2];
 }
 
-rf('day3/sample.txt', calculate);
+rf('day3/sample.txt', calculate,[157,70]);
 rf('day3/input.txt', calculate);
