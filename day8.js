@@ -90,7 +90,7 @@ function calculate(data) {
     )
     .map((x) => x.reduce((a, b) => (a >= b ? a : b), 0))
     .reduce((a, b) => (a >= b ? a : b), 0);
-  //1006740
+
   return [result1, result2];
 }
 rf('day8/sample.txt', calculate, [21, 8]);
