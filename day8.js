@@ -29,10 +29,11 @@ function calculate(data) {
       rt = 0;
 
     for (let j = 0; j <= width; ++j) {
+      let val =input[i][j];
       //LEFT
       grid[i][j] =
-        j == 0 || input[i][j] >= lt + 1 ? grid[i][j] + 1 : grid[i][j];
-      lt = j == 0 || input[i][j] >= lt + 1 ? input[i][j] : lt;
+        j == 0 || val >= lt + 1 ? grid[i][j] + 1 : grid[i][j];
+      lt = j == 0 || val >= lt + 1 ? val : lt;
       //RIGHT
       grid[i][width - j] =
         j == 0 || input[i][width - j] >= rt + 1
@@ -41,8 +42,8 @@ function calculate(data) {
       rt = j == 0 || input[i][width - j] >= rt + 1 ? input[i][width - j] : rt;
       //TOP
       grid[i][j] =
-        i == 0 || input[i][j] >= tp[j] + 1 ? grid[i][j] + 1 : grid[i][j];
-      tp[j] = i == 0 || input[i][j] >= tp[j] + 1 ? input[i][j] : tp[j];
+        i == 0 || val >= tp[j] + 1 ? grid[i][j] + 1 : grid[i][j];
+      tp[j] = i == 0 || val >= tp[j] + 1 ? val : tp[j];
       //BOTTOM
       grid[height - i][j] =
         i == 0 || input[height - i][j] >= bm[j] + 1
@@ -56,26 +57,26 @@ function calculate(data) {
       //SOLUTION B
       let column = input.map((line) => line[j]);
       //UP
-      let idx = findIndex(first(column, i).reverse(), (a) => a >= input[i][j]);
-      let visible = idx == -1 ? i : idx + 1;
+      let idx = findIndex(first(column, i).reverse(), (a) => a >= val);
+      let v = idx == -1 ? i : idx + 1;
       
-      grid2[i][j] = visible != 0 ? grid2[i][j] * visible : grid2[i][j];
+      grid2[i][j] = v != 0 ? grid2[i][j] * v : grid2[i][j];
       //LEFT
-      idx = findIndex(first(input[i], j).reverse(), (a) => a >= input[i][j]);
-      visible = idx == -1 ? j : idx + 1;
+      idx = findIndex(first(input[i], j).reverse(), (a) => a >= val);
+      v = idx == -1 ? j : idx + 1;
       
-      grid2[i][j] = visible != 0 ? grid2[i][j] * visible : grid2[i][j];
+      grid2[i][j] = v != 0 ? grid2[i][j] * v : grid2[i][j];
       //DOWN
-      idx = findIndex(last(column, height - i), (a) => a >= input[i][j]);
-      visible = idx == -1 ? height - i : idx + 1;
+      idx = findIndex(last(column, height - i), (a) => a >= val);
+      v = idx == -1 ? height - i : idx + 1;
       
-      grid2[i][j] = visible != 0 ? grid2[i][j] * visible : grid2[i][j];
+      grid2[i][j] = v != 0 ? grid2[i][j] * v : grid2[i][j];
 
       //RIGHT
-      idx = findIndex(last(input[i], width - j), (a) => a >= input[i][j]);
-      visible = idx == -1 ? width - j : idx + 1;
+      idx = findIndex(last(input[i], width - j), (a) => a >= val);
+      v = idx == -1 ? width - j : idx + 1;
       
-      grid2[i][j] = visible != 0 ? grid2[i][j] * visible : grid2[i][j];
+      grid2[i][j] = v != 0 ? grid2[i][j] * v : grid2[i][j];
 
 
     }
@@ -94,4 +95,4 @@ function calculate(data) {
   return [result1, result2];
 }
 rf('day8/sample.txt', calculate, [21, 8]);
-rf('day8/input.txt', calculate);
+rf('day8/input.txt', calculate,[1827,335580]);
