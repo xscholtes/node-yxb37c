@@ -54,61 +54,35 @@ function calculate(data) {
           : bm[j];
 
       //SOLUTION B
-      let idx = findIndex(last(input[i], width - j), (a) => a >= input[i][j]);
-      let visible = idx == -1 ? width - j : idx + 1;
-      if (i == 3 && j == 2) {
-        console.log('LEFT', visible);
-      }
+      let column = input.map((line) => line[j]);
+      //UP
+      let idx = findIndex(first(column, i).reverse(), (a) => a >= input[i][j]);
+      let visible = idx == -1 ? i : idx + 1;
+      
+      grid2[i][j] = visible != 0 ? grid2[i][j] * visible : grid2[i][j];
+      //LEFT
+      idx = findIndex(first(input[i], j).reverse(), (a) => a >= input[i][j]);
+      visible = idx == -1 ? j : idx + 1;
+      
+      grid2[i][j] = visible != 0 ? grid2[i][j] * visible : grid2[i][j];
+      //DOWN
+      idx = findIndex(last(column, height - i), (a) => a >= input[i][j]);
+      visible = idx == -1 ? height - i : idx + 1;
+      
       grid2[i][j] = visible != 0 ? grid2[i][j] * visible : grid2[i][j];
 
-      idx = findIndex(
-        first(input[i], width - j).reverse(),
-        (a) => a >= input[i][width - j]
-      );
+      //RIGHT
+      idx = findIndex(last(input[i], width - j), (a) => a >= input[i][j]);
       visible = idx == -1 ? width - j : idx + 1;
-      if (i == 3 && j == 2) {
-        console.log('RIGHT', visible);
-      }
-      grid2[i][width - j] =
-        visible != 0 ? grid2[i][width - j] * visible : grid2[i][width - j];
-
-      idx = findIndex(
-        last(
-          input.map((line) => line[j]),
-          height - i
-        ),
-        (a) => a >= input[i][j]
-      );
-      visible = idx == -1 ? height - i : idx + 1;
-      if (i == 3 && j == 2) {
-        console.log('DOWN', visible);
-      }
+      
       grid2[i][j] = visible != 0 ? grid2[i][j] * visible : grid2[i][j];
 
-      idx = findIndex(
-        last(
-          input.map((line) => line[j]),
-          height - i
-        ).reverse(),
-        (a) => a >= input[height - i][j]
-      );
-      visible = idx == -1 ? height - i : idx + 1;
-      if (i == 3 && j == 2) {
-        console.log(
-          'UP',
-          visible,
-          last(
-            input.map((line) => line[j]),
-            i
-          ).reverse()
-        );
-      }
-      grid2[height - i][j] =
-        visible != 0 ? grid2[height - i][j] * visible : grid2[height - i][j];
+
     }
   }
-  console.log(input);
-  console.log(grid2);
+  //console.log(input);
+  //console.log(grid2);
+
   let result1 = grid
     .map((a, b) => a.reduce((x, y) => (x += y >= 1 ? 1 : 0), 0))
     .reduce((a, b) => a + b, 0);
@@ -122,4 +96,4 @@ function calculate(data) {
   return [result1, result2];
 }
 rf('day8/sample.txt', calculate, [21, 8]);
-//rf('day8/input.txt', calculate);
+rf('day8/input.txt', calculate);
