@@ -80,9 +80,7 @@ function calculate(data) {
 
     }
   }
-  //console.log(input);
-  //console.log(grid2);
-
+  
   let result1 = grid
     .map((a, b) => a.reduce((x, y) => (x += y >= 1 ? 1 : 0), 0))
     .reduce((a, b) => a + b, 0);
