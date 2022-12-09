@@ -14,13 +14,11 @@ function calculate(data) {
       [[1, -1], [0, 0], [0, 0], [0, 0], [1, 1],],
       [[1, -1], [1, -1], [1, 0], [1, 1], [1, 1],],
     ];
-    let di = 0;
-    let dj = 0;
     let to = Array(iterations).fill([0,0]);
     let po = Array(iterations).fill(0).map(a => [[0,0]]);
     moves.forEach((m) => {
-      dj = m[0] == 'R' ? 1 : m[0] == 'L' ? -1 : 0;
-      di = m[0] == 'D' ? 1 : m[0] == 'U' ? -1 : 0;
+      let dj = m[0] == 'R' ? 1 : m[0] == 'L' ? -1 : 0;
+      let di = m[0] == 'D' ? 1 : m[0] == 'U' ? -1 : 0;
       for (let s = 1; s <= m[1]; ++s) {
         to[0] =  [to[0][0] + di, to[0][1] + dj];
         for(let i = 1; i <= iterations -1; i++){
