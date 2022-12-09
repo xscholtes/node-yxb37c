@@ -79,6 +79,7 @@ function calculate(data) {
   let result1 = calculateMovesPositions(moves);
   return [result1[0].length, result1[1].length];
 }
+
 rf('day9/sample.txt', calculate, [13, 1]);
 rf('day9/sample2.txt', calculate, [88, 36]);
-rf('day9/input.txt', calculate);
+rf('day9/input.txt', calculate,[6269,2557]);

@@ -6,5 +6,5 @@ function calculate(data) {
 
   return [input[0], input.length];
 }
-rf('day10/sample.txt', calculate,['sample input',1]);
+rf('day10/sample.txt', calculate,['sample input',2]);
 rf('day10/input.txt', calculate);
