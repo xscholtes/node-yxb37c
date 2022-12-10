@@ -20,6 +20,7 @@ function calculate(data) {
       let dj = m[0] == 'R' ? 1 : m[0] == 'L' ? -1 : 0;
       let di = m[0] == 'D' ? 1 : m[0] == 'U' ? -1 : 0;
       for (let s = 1; s <= m[1]; ++s) {
+        // H: head
         to[0] =  [to[0][0] + di, to[0][1] + dj];
         for(let i = 1; i <= iterations -1; i++){
           let te = tensors[to[i-1][0] - to[i][0] + 2][to[i-1][1] - to[i][1] + 2];
