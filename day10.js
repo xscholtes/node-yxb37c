@@ -20,9 +20,9 @@ function calculate(data) {
   cycles.forEach((c,ix) =>{
     let sprite = Array(40).fill(".");
     posx += c;
-    sprite[posx-1] = (posx % 40 != 0) ? '#' :'.';
+    sprite[posx-1] = (posx != 0) ? '#' :'.';
     sprite[posx] = '#';
-    sprite[posx +1] = (posx % 40 != 39) ? '#' :'.';
+    sprite[posx +1] = (posx != 39) ? '#' :'.';
     crt += (ix % 40 +1) !==40 ? sprite[ix% 40 +1]:' ';
   });
   for(let i = 40; i <= 220; i+= 41){

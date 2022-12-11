@@ -1,6 +1,6 @@
 import nodemon from 'nodemon';
 
-nodemon({ script: 'day10.js' })
+nodemon({ script: 'day11.js' })
   .on('start', console.clear)
   .on('restart', console.clear)
   .on('quit', () => {
