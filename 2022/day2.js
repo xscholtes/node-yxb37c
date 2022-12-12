@@ -1,4 +1,4 @@
-import { rf } from './utils/rf.js';
+import { rf } from './../utils/rf.js';
 
 function calculate(data) {
   //get calories per elf
@@ -67,5 +67,5 @@ function calculate(data) {
   return [rewardsSum, rewardsSum2];
 }
 
-rf('day2/sample.txt', calculate,[15,12]);
-rf('day2/input.txt', calculate);
+rf('2022/day2/sample.txt', calculate,[15,12]);
+rf('2022/day2/input.txt', calculate);

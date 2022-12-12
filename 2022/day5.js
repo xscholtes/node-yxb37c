@@ -1,4 +1,4 @@
-import { rf } from './utils/rf.js';
+import { rf } from './../utils/rf.js';
 import { range } from 'underscore';
 
 function calculate(data) {
@@ -46,5 +46,5 @@ function calculate(data) {
   ];
 }
 
-rf('day5/sample.txt', calculate,['CMZ','MCD']);
-rf('day5/input.txt', calculate);
+rf('2022/day5/sample.txt', calculate,['CMZ','MCD']);
+rf('2022/day5/input.txt', calculate);

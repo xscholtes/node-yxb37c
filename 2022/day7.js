@@ -1,4 +1,4 @@
-import { rf } from './utils/rf.js';
+import { rf } from './../utils/rf.js';
 import { pairs } from 'underscore';
 
 function calculate(data) {
@@ -34,5 +34,5 @@ function calculate(data) {
       .sort()[0],
   ];
 }
-rf('day7/sample.txt', calculate,[95437,24933642]);
-rf('day7/input.txt', calculate);
+rf('2022/day7/sample.txt', calculate,[95437,24933642]);
+rf('2022/day7/input.txt', calculate);

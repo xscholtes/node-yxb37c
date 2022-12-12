@@ -1,4 +1,4 @@
-import { rf } from './utils/rf.js';
+import { rf } from './../utils/rf.js';
 import { uniq } from 'underscore';
 
 function calculate(data) {
@@ -50,5 +50,5 @@ function calculate(data) {
   return [result1, result2];
 }
 
-rf('day3/sample.txt', calculate,[157,70]);
-rf('day3/input.txt', calculate);
+rf('2022/day3/sample.txt', calculate,[157,70]);
+rf('2022/day3/input.txt', calculate);

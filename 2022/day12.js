@@ -1,4 +1,4 @@
-import { rf } from './utils/rf.js';
+import { rf } from './../utils/rf.js';
 import { min} from 'underscore';
 
 function calculate(data) {
@@ -193,5 +193,5 @@ var dijkstra = {
     }
   }
 };
-rf('day12/sample.txt', calculate, [31, 29]);
-rf('day12/input.txt', calculate,[408,399]);
+rf('2022/day12/sample.txt', calculate, [31, 29]);
+rf('2022/day12/input.txt', calculate,[408,399]);

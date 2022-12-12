@@ -1,4 +1,4 @@
-import { rf } from './utils/rf.js';
+import { rf } from './../utils/rf.js';
 import { findIndex, last, findLastIndex, first } from 'underscore';
 //https://adventofcode.com/2022/day/8
 
@@ -66,5 +66,5 @@ function calculate(data) {
 
   return [result1, result2];
 }
-rf('day8/sample.txt', calculate, [21, 8]);
-rf('day8/input.txt', calculate, [1827, 335580]);
+rf('2022/day8/sample.txt', calculate, [21, 8]);
+rf('2022/day8/input.txt', calculate, [1827, 335580]);

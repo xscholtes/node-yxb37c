@@ -1,4 +1,4 @@
-import { rf } from './utils/rf.js';
+import { rf } from './../utils/rf.js';
 import { first } from 'underscore';
 function calculate(data) {
   //PARSING
@@ -31,6 +31,6 @@ function calculate(data) {
   console.log([crt.slice(0,245)].join(''));
   return [result1, input.length];
 }
-rf('day10/sample.txt', calculate,[13140]);
-rf('day10/input.txt', calculate);
+rf('2022/day10/sample.txt', calculate,[13140]);
+rf('2022/day10/input.txt', calculate);
 

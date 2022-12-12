@@ -1,4 +1,4 @@
-import { rf } from './utils/rf.js';
+import { rf } from './../utils/rf.js';
 
 function calculate(data) {
   //PARSING
@@ -51,5 +51,5 @@ function calculate(data) {
 
   return [result1, result2];
 }
-rf('day11/sample.txt', calculate, [10605, 2713310158]);
-rf('day11/input.txt', calculate, [90882, 30893109657]);
+rf('2022/day11/sample.txt', calculate, [10605, 2713310158]);
+rf('2022/day11/input.txt', calculate, [90882, 30893109657]);
