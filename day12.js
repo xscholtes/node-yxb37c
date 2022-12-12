@@ -53,7 +53,6 @@ function calculate(data) {
       //console.log(ex.message);
     }
    }
-   console.log(paths.length);
   return [path.length -1 , min(paths)];
 }
 
@@ -194,5 +193,5 @@ var dijkstra = {
     }
   }
 };
-rf('day12/sample.txt', calculate, [31, 1]);
-rf('day12/input.txt', calculate);
+rf('day12/sample.txt', calculate, [31, 29]);
+rf('day12/input.txt', calculate,[408,399]);
