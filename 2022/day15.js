@@ -52,7 +52,6 @@ function calculate(data, row, max) {
       });
       // union of ranges
       let ranges = [];
-      let start = null;
       let sorted = occupied.sort((a, b) => a[0] - b[0])
       for (let i = 0; i < sorted.length; i += 1) {
         let a = sorted[i];
@@ -85,4 +84,4 @@ function calculate(data, row, max) {
   return [result1, result2];
 }
 rf('2022/day15/sample.txt', function (data) { return calculate(data, 10, 20); }, [26, 56000011]);
-rf('2022/day15/input.txt', function (data) { return calculate(data, 2000000, 4000000); }, [4876693, 4876693]);
+rf('2022/day15/input.txt', function (data) { return calculate(data, 2000000, 4000000); }, [4876693, 11645454855041]);
