@@ -62,8 +62,6 @@ function calculate(data, row, max) {
             ranges[ranges.length - 1][1] = a[1]
           } else if (a[0] <= ranges[ranges.length - 1][1] && a[1] <= ranges[ranges.length - 1][1]) {
             //do nothing
-          } else if (a[0] <= ranges[ranges.length - 1][1] && a[1] <= ranges[ranges.length - 1][1]) {
-            //do nothing
           } else {
             ranges.push(a);
           }
