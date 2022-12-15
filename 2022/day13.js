@@ -57,4 +57,4 @@ function calculate(data) {
   return [result1, (result2.indexOf('[[2]]') + 1) * (result2.indexOf('[[6]]') + 1)];
 }
 rf('2022/day13/sample.txt', calculate, [13, 1]);
-rf('2022/day13/input.txt', calculate);
+rf('2022/day13/input.txt', calculate, [5390,19261]);
