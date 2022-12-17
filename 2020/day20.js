@@ -79,6 +79,19 @@ function calculate(data) {
                 }
         });
     }
+    //choose one possible orientation
+    let prevTile = 0;
+    p.forEach((row,i)=> {
+        row.forEach((tl,j) => {
+            if(i== 0 && j ==0) {
+                tl.map = [p[0][1].map[0]];
+                prevTile = p[0][1].map[0][]
+            } else {
+                tl.map = tl.map.filter(ed => ed[0] == prevTile);
+            }
+
+        })
+    });
     //orientation
     
     let monster = ['.#...#.###...#.##.O#','O.##.OO#.#.OO.##.OOO','#O.#O#.O##O..O.#O##.'].map(m => parseInt(m.replace(/[^O]/g,'0').replace(/O/g,'1'),2));
@@ -91,4 +104,4 @@ function calculate(data) {
 }
 
 rf('2020/day20/sample.txt', calculate, [20899048083289, 1]);
-rf('2020/day20/input.txt', calculate,[111936085519519,1]);
+//rf('2020/day20/input.txt', calculate,[111936085519519,1]);

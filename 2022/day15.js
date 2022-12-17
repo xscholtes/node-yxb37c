@@ -75,8 +75,6 @@ function calculate(data, row, max) {
     }
     return (result[0][1] + 1) * 4000000 + row;
   }
-  //to high 4996188
-  //to low 4631378
   let result1 = coverage(links, row);
   let result2 = hole(links, max);
   return [result1, result2];
