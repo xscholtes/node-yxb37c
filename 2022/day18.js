@@ -2,7 +2,7 @@ import { rf } from './../utils/rf.js';
 
 function calculate(data) {
   //PARSING
-  var input = data.toString().split('\r\n');
+  var input = data.toString().split('\n');
 
   return [input[0], input.length];
 }
